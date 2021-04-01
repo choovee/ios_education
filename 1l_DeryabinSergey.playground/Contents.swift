@@ -2,9 +2,9 @@ import UIKit
 
 //Решить квадратное уравнение.
 
-let a: Float = 3.0
-let b: Float = 13.0
-let c: Float = -10.0
+let a = 3.0
+let b = 13.0
+let c = -10.0
 
 let discriminant = (pow(b, 2) - (4 * a * c))
 
@@ -23,8 +23,8 @@ if discriminant > 0 {
 
 //Для проверки верности иксов
 //let x: Double = -5
-let x: Float = 0.6666667
-let equation = (a * pow(x, 2) + b * x + c == 0) //уравнение
+//let x: Float = 0.6666667
+//let equation = (a * pow(x, 2) + b * x + c == 0) //уравнение
 
 
 //Даны катеты прямоугольного треугольника. Найти площадь, периметр и гипотенузу треугольника.
