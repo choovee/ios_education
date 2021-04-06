@@ -3,18 +3,14 @@ import UIKit
 // 1. Написать функцию, которая определяет, четное число или нет.
 
 func isEven(number: Int) -> Bool {
-  guard number % 2 == 0 && number != 0 else { return false }
-  
-  return true
+  return number % 2 == 0
 }
 
 
 // 2. Написать функцию, которая определяет, делится ли число без остатка на 3.
 
 func isDivisibleBy3WithoutRemainder(number: Int) -> Bool {
-  guard number % 3 == 0 && number != 0 else { return false }
-  
-  return true
+  return number % 3 == 0
 }
 
 
@@ -67,7 +63,7 @@ while numbers.count < 100 {
     numbers.append(startNumber)
     startNumber += 1
   }
-  
+
   guard var p = numbers.first else { break }
 
   while p != numbers.last {
@@ -81,9 +77,10 @@ while numbers.count < 100 {
     for value in numbers {
       if value > p {
         p = value
-        
+
         break
       }
     }
   }
 }
+
