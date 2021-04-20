@@ -32,6 +32,7 @@ protocol CarProtocol: class, CustomStringConvertible {
   var engineInfo: Engine { get set }
   var windowsInfo: Windows { get set }
   var tirePressure: Wheels { get set }
+  
 }
 
 extension CarProtocol {
@@ -200,7 +201,7 @@ trunkCar.changeTirePressure(to: .pumpUp)
 trunkCar.tirePressure
 trunkCar.freeVolume
 trunkCar.addCargo(volume: 350)
-trunkCar.printInfo()
+print(trunkCar)
 
 
 var sportCar = SportCar(model: "BMW", yearOfIssue: 2020, color: "black", engineVolume: 6.0, engineInfo: .stop, windowsInfo: .close, tirePressure: .toDefault, maxSpeed: 315, sportMode: .off)
@@ -208,4 +209,4 @@ sportCar.changeSportMode(to: .on)
 sportCar.engineInfo = .start
 sportCar.correctSpeed(to: 120)
 sportCar.currentSpeed
-sportCar.printInfo()
+print(sportCar)
