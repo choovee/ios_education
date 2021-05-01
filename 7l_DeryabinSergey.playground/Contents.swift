@@ -34,12 +34,12 @@ class Printer1 {
     paperCount += value
   }
   
-  func printSome(pages: Int, with color: Colors) -> String? {
-    guard pages <= paperCount else { return nil }
+  func printSome(pages: Int, with color: Colors) -> (String?, PrinterError?) {
+    guard pages <= paperCount else { return (nil, PrinterError.paperOut(paperNeeded: pages - paperCount)) }
     
-    guard electricity == true else { return nil }
+    guard electricity == true else { return (nil, PrinterError.noElectricity("2")) }
     
-    guard color == .blackNWhite || color == .colored else { return nil }
+    guard color == .blackNWhite || color == .colored else { return (nil, PrinterError.wrongColor("3")) }
     
     paperCount -= pages
     let info = """
@@ -47,24 +47,19 @@ class Printer1 {
     Осталось страниц в принтере - \(paperCount)
     """
     
-    return info
+    return (info, nil)
   }
 }
 
-let printerUse1 = Printer1(paperCount: 110, electricity: true, color: .customTest)
+let printerUse1 = Printer1(paperCount: 100, electricity: true, color: .customTest)
 
-let one = printerUse1.printSome(pages: 10, with: .colored)
-let two = printerUse1.printSome(pages: 50, with: .blackNWhite)
-let three = printerUse1.printSome(pages: 110, with: .customTest)
+let printTest = printerUse1.printSome(pages: 101, with: .colored)
 
-if one != nil {
-  print("> \(one?.description ?? "first error")")
-} else if two != nil {
-  print("> \(two?.description ?? "second error")")
-} else if three != nil {
-  print("> \(three?.description ?? "third error")")
+if let successPrint = printTest.0 {
+  print(successPrint)
+} else if let error = printTest.1 {
+  print(error.localizedDescription)
 }
-
 
 
 // MARK: второй вариант
